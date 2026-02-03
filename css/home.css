@@ -368,3 +368,18 @@ h1 {
   transform: scale(1.15);
   opacity: 0.8;
 }
+
+
+
+
+.conectar {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  color: #ffffff;
+}
+
+
+.conectar h4:hover {
+  text-decoration: underline;
+}
