@@ -68,7 +68,6 @@ let modoEdicao = false;
 
 
 
-const SENHA_EDICAO = "1234";
 
 const diasContainer = document.getElementById("dias");
 const mesAnoSpan = document.getElementById("mes-ano");
@@ -158,6 +157,11 @@ if (primeiroDiaSemana >= 1 && primeiroDiaSemana <= 5) {
 }
 
 
+
+
+
+
+
       const dataISO = `${ano}-${String(mes + 1).padStart(2, "0")}-${String(dia).padStart(2, "0")}`;
 
         div.innerHTML = `
@@ -188,6 +192,27 @@ if (primeiroDiaSemana >= 1 && primeiroDiaSemana <= 5) {
 });
 
 }
+
+
+/* ===========================
+        SENHA FIREBASSE
+==============================*/
+async function verificarSenha(senhaDigitada) {
+  const refSenha = doc(window.db, "config", "seguranca");
+  const snap = await getDoc(refSenha);
+
+  if (!snap.exists()) {
+    alert("Senha não configurada no banco!");
+    return false;
+  }
+
+  const senhaCorreta = snap.data().senha;
+
+  return senhaDigitada === senhaCorreta;
+}
+
+
+
 
 
 
@@ -294,9 +319,12 @@ async function carregarDetalhesDia(diaISO) {
 /* ======================
    CONTROLE DE EDIÇÃO
 ====================== */
-btnEditar.onclick = () => {
+btnEditar.onclick = async () => {
   const senha = prompt("Digite a senha para editar:");
-  if (senha === SENHA_EDICAO) {
+
+  const ok = await verificarSenha(senha);
+
+  if (ok) {
     modoEdicao = true;
     atualizarEdicao();
   } else {
