@@ -6,10 +6,11 @@
 }
 
 body {
-    background: #f0f6ff;
-    padding: 20px;
+  background-color: #1a0f12;
+  color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  padding: 20px;
 }
-
 
 
 
@@ -42,6 +43,7 @@ button {
 }
 
 .calendario {
+  overflow-x: auto;
   background-color: #241216;
   border-radius: 10px;
 }
@@ -186,15 +188,6 @@ button {
 
 
 
-/* aqui esta a parte das cores  */
-body {
-  background-color: #1a0f12;
-  color: #f5f5f5;
-  font-family: Arial, sans-serif;
-}
-
-
-
 
 
 
@@ -262,11 +255,6 @@ body {
   border: 1px solid #3a1a1f;
 }
 
-
-body {
-  background-color: #1a0f12;
-  color: #f5f5f5;
-}
 
 
 
@@ -403,3 +391,35 @@ body {
 }
 
 
+
+
+
+
+
+/* 📱 CELULAR */
+@media (max-width: 600px) {
+
+  .dias {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .cabecalho {
+    display: none;
+  }
+
+  .dia {
+    min-height: auto;
+  }
+
+  .dia textarea {
+    height: 80px;
+  }
+
+}
+
+
+
+
+html, body {
+  overflow-x: hidden;
+}
