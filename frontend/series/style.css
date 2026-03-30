@@ -1,0 +1,90 @@
+body {
+  height: 100vh;
+
+  /* Azul predominante + cores da logo */
+  background: linear-gradient(
+    135deg,
+    #0f172a,
+    #1e3a8a,
+    #2563eb,
+    #4f46e5,
+    #7c3aed
+  );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo */
+.logo {
+  width: 150px;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.4));
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+  padding: 40px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+  color: white;
+
+  /* borda sutil com cor da logo */
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+p {
+  font-size: 14px;
+  margin-bottom: 25px;
+  opacity: 0.85;
+}
+
+/* Selects mais bonitos */
+select {
+  width: 100%;
+  padding: 11px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+
+  background: rgba(255,255,255,0.9);
+}
+
+/* Botão com gradiente inspirado na logo */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #155adb, #65ca13, #eece18, #c52222);
+  color: white;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.footer {
+  margin-top: 15px;
+  font-size: 12px;
+  opacity: 0.6;
+}

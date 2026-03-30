@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>2º Ano B</title>
+
+    <link rel="stylesheet" href="calendario.css">
+</head>
+<body>
+
+
+
+  <!-- Botão do menu -->
+
+<!-- Menu lateral -->
+<nav id="sidebar" class="sidebar">
+  <a href="/frontend/index.html">🏠 Pagina Inicial</a>
+  <a href="#">📚 Turmas</a>
+  <a href="#">ℹ️ Sobre</a>
+</nav>
+
+
+
+
+
+  
+
+
+    <div id="tela-login" class="login-overlay hidden">
+  <div class="login-box">
+    <h2>Login da Sala</h2>
+
+    <input type="email" id="login-email" placeholder="Email da sala" />
+    <input type="password" id="login-senha" placeholder="Senha" />
+
+    <button id="btn-login">Entrar</button>
+
+    <p class="login-erro" id="login-erro"></p>
+  </div>
+</div>
+
+
+
+
+
+   <button onclick="loginSala()">Entrar na sala</button> 
+
+<!--   <button id="btn-sair">Sair</button> -->
+
+
+
+<header class="topo">
+  <button id="menuBtn" class="menu-btn">☰</button>
+
+  <h1 id="titulo-turma">2º Ano B</h1>
+
+  <button id="btn-editar">Editar</button>
+  <button id="btn-salvar" hidden>Salvar</button>
+</header>
+
+
+    <section class="avisos">
+        <h2>📌 Avisos importantes</h2>
+            <textarea
+                id="campo-avisos"
+                placeholder="aqui estará avisos importantes do mês..."
+                disabled
+            ></textarea>
+    </section>
+
+
+
+    <main>
+        <div class="controle-mes">
+            <button id="mes-anterior">◀</button>
+            <span id="mes-ano"></span>
+            <button id="mes-proximo">▶</button>
+        </div>
+
+        <div class="calendario">
+            <div class="cabecalho">
+                <span>Seg</span>
+                <span>Ter</span>
+                <span>Qua</span>
+                <span>Qui</span>
+                <span>Sex</span>
+            </div>
+
+            <div id="dias" class="dias">
+                <!-- Dias úteis entram aqui via JS -->
+            </div>
+        </div>
+    </main>
+
+<div id="painel-detalhes" class="painel-detalhes hidden">
+  <div class="painel-conteudo">
+    <h2 id="titulo-detalhes">Detalhes do dia</h2>
+
+    <textarea
+      id="campo-detalhes"
+      placeholder="Escreva os detalhes deste dia..."
+      disabled
+    ></textarea>
+
+    <div class="acoes-detalhes">
+      <button id="fechar-detalhes">Fechar</button>
+    </div>
+  </div>
+</div>
+
+
+    <script>
+        const SERIE = "2ano";
+        const TURMA = "b";
+    </script>
+
+ <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDgMBfsuR66vQiz5hG5F2OkhiTE_H1ZCTk",
+    authDomain: "portal-erempaf.firebaseapp.com",
+    projectId: "portal-erempaf",
+    storageBucket: "portal-erempaf.firebasestorage.app",
+    messagingSenderId: "124907592592",
+    appId: "1:124907592592:web:a9de2e6959a768c7d4b115",
+    measurementId: "G-C0XKKG5FEN"
+  };
+
+  const app = initializeApp(firebaseConfig);
+
+  window.auth = getAuth(app);
+  window.db = getFirestore(app);
+
+
+  window.usuarioLogado = null;
+
+  onAuthStateChanged(window.auth, (user) => {
+    const btnLogin = document.querySelector("button[onclick='loginSala()']");
+    const btnEditar = document.getElementById("btn-editar");
+
+    if (user) {
+      console.log("🔐 Logado:", user.email);
+      window.usuarioLogado = user;
+
+      btnLogin.style.display = "none";
+      btnEditar.disabled = false;
+
+      // avisa o calendário
+      if (window.carregarCalendario) {
+        window.carregarCalendario();
+      }
+
+    } else {
+      console.log("🚫 Deslogado");
+      window.usuarioLogado = null;
+
+      btnLogin.style.display = "inline-block";
+      btnEditar.disabled = true;
+    }
+  });
+
+  console.log("🔥 Firebase conectado");
+</script>
+
+
+
+
+    <script type="module" src="calendario.js"></script>
+    <script>
+         window.usuarioLogado = null;
+    </script>
+
+
+</body>
+</html>
+
