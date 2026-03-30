@@ -65,9 +65,11 @@ button {
 
 .dia {
     border: 1px solid #ccc;
+    aspect-ratio: 1 / 1;
     min-height: 80px;
     padding: 5px;
     background: #fafafa;
+   
 }
 
 .dia .numero {
@@ -83,6 +85,7 @@ button {
     background: transparent;
     color: #000;
     font-size: 14px;
+    overflow-y: auto;
 }
 
 .dia textarea:disabled {
@@ -395,12 +398,15 @@ button {
 
 
 
-
-/* 📱 CELULAR */
 @media (max-width: 600px) {
 
+  body {
+    padding: 10px;
+  }
+
   .dias {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4px;
   }
 
   .cabecalho {
@@ -408,16 +414,27 @@ button {
   }
 
   .dia {
-    min-height: auto;
+    padding: 4px;
+    font-size: 11px;
+
+    /* 🔥 deixa tudo proporcional */
+    aspect-ratio: 1 / 1;
+  }
+
+  .numero {
+    font-size: 12px;
+  }
+
+  .info {
+    font-size: 11px;
   }
 
   .dia textarea {
-    height: 80px;
+    height: 100%;
+    font-size: 11px;
   }
 
 }
-
-
 
 
 html, body {
