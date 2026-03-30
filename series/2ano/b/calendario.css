@@ -409,9 +409,6 @@ button {
     gap: 4px;
   }
 
-  .cabecalho {
-    display: none;
-  }
 
   .dia {
     aspect-ratio: 1 / 1; /* ✅ só no celular */
