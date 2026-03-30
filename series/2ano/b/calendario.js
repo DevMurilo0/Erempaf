@@ -198,11 +198,11 @@ if (primeiroDiaSemana >= 1 && primeiroDiaSemana <= 5) {
         SENHA FIREBASSE
 ==============================*/
 async function verificarSenha(senhaDigitada) {
-  const refSenha = doc(window.db, "config", "seguranca");
+  const refSenha = doc(window.db, "salas", SALA_ID);
   const snap = await getDoc(refSenha);
 
   if (!snap.exists()) {
-    alert("Senha não configurada no banco!");
+    alert("Sala não encontrada!");
     return false;
   }
 
@@ -210,7 +210,6 @@ async function verificarSenha(senhaDigitada) {
 
   return senhaDigitada === senhaCorreta;
 }
-
 
 
 
