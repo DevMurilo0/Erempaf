@@ -46,6 +46,9 @@ button {
   overflow-x: auto;
   background-color: #241216;
   border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -404,18 +407,18 @@ button {
     padding: 8px;
   }
 
+  .cabecalho,
   .dias {
     grid-template-columns: repeat(5, 1fr);
-    gap: 4px;
-    min-width: unset;
+    width: 100%;
   }
 
-  .cabecalho {
-    display: grid; /* mantém visível */
+  .cabecalho span {
+    text-align: center;
     font-size: 12px;
-    gap: 4px;
-    margin-bottom: 6px;
   }
+
+
   .dia {
     aspect-ratio: 1 / 1; /* ✅ só no celular */
     min-height: auto;
