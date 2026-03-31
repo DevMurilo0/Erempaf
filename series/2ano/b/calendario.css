@@ -407,14 +407,15 @@ button {
   .dias {
     grid-template-columns: repeat(5, 1fr);
     gap: 4px;
+    min-width: unset;
   }
 
-.cabecalho {
-  position: sticky;
-  top: 0;
-  background: #241216;
-  z-index: 10;
-}
+  .cabecalho {
+    display: grid; /* mantém visível */
+    font-size: 12px;
+    gap: 4px;
+    margin-bottom: 6px;
+  }
   .dia {
     aspect-ratio: 1 / 1; /* ✅ só no celular */
     min-height: auto;
