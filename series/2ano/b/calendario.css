@@ -409,7 +409,12 @@ button {
     gap: 4px;
   }
 
-
+.cabecalho {
+  position: sticky;
+  top: 0;
+  background: #241216;
+  z-index: 10;
+}
   .dia {
     aspect-ratio: 1 / 1; /* ✅ só no celular */
     min-height: auto;
