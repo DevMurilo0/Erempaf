@@ -436,6 +436,7 @@ button {
   .dia,
   .dia.vazio {
     aspect-ratio: 1 / 1;
+    min-height: 0; /* 🔥 ESSENCIAL */
     padding: 3px;
     font-size: 11px;
   }
@@ -454,7 +455,6 @@ button {
   }
 
 }
-
 html, body {
   overflow-x: hidden;
 }
@@ -465,7 +465,6 @@ html, body {
   visibility: hidden; /* invisível mas ocupa espaço */
 }
 
-.dia,
-.dia.vazio {
+.dia {
   min-height: 120px;
 }
