@@ -46,9 +46,6 @@ button {
   overflow-x: auto;
   background-color: #241216;
   border-radius: 10px;
-
-  display: flex;
-  flex-direction: column;
 }
 
 
@@ -60,11 +57,30 @@ button {
     margin-bottom: 5px;
 }
 
+
+.cabecalho span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+.cabecalho,
+.dias {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+}
+
+
+
 .dias {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 5px;
-    min-width: 500px;
+    
 }
 
 .dia {
@@ -407,20 +423,18 @@ button {
     padding: 8px;
   }
 
-  .cabecalho,
-  .dias {
-    grid-template-columns: repeat(5, 1fr);
+  .calendario {
     width: 100%;
   }
 
-  .cabecalho span {
-    text-align: center;
-    font-size: 12px;
+  .cabecalho,
+  .dias {
+    width: 100%;
+    grid-template-columns: repeat(5, 1fr);
   }
 
-
   .dia {
-    aspect-ratio: 1 / 1; /* ✅ só no celular */
+    aspect-ratio: 1 / 1;
     min-height: auto;
     padding: 3px;
     font-size: 11px;
