@@ -433,9 +433,9 @@ button {
     grid-template-columns: repeat(5, 1fr);
   }
 
-  .dia {
+  .dia,
+  .dia.vazio {
     aspect-ratio: 1 / 1;
-    min-height: auto;
     padding: 3px;
     font-size: 11px;
   }
@@ -455,7 +455,17 @@ button {
 
 }
 
-
 html, body {
   overflow-x: hidden;
+}
+
+
+
+.dia.vazio {
+  visibility: hidden; /* invisível mas ocupa espaço */
+}
+
+.dia,
+.dia.vazio {
+  min-height: 120px;
 }
