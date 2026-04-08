@@ -224,7 +224,7 @@ async function salvarCalendario() {
   const dados = {};
 
   // dias do calendário
-  document.querySelectorAll("[data-dia]").forEach(el => {
+  document.querySelectorAll("textarea[data-dia]").forEach(el => {
     const dia = el.dataset.dia;
 
     if (el.value.trim()) {
