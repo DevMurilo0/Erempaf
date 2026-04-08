@@ -336,7 +336,8 @@ btnSalvar.onclick = async () => {
     await salvarCalendario();
   } catch (e) {
     console.error("Erro ao salvar:", e);
-    alert("❌ Erro ao salvar no Firebase");
+    alert("❌ Erro ao salvar: " + e.message);
+console.error(e);
   }
 
   // 🔒 desativa edição SEMPRE
